@@ -1,0 +1,10 @@
+^C:\USERS\LOTHAR\DESKTOP\LAB05\GLFWSAMPLE-MASTER-MASTER\BUILD\CMAKEFILES\CA84567C2EBFE6CC8F570F662FBC950A\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/Lothar/Desktop/lab05/GLFWSample-master-master -BC:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/build/untitled3.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

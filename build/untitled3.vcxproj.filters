@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\Initialize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\controls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\stb_image.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\objloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\RenderableObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\src\Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\Initialize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\controls.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\objloader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\RenderableObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\dependeces\Common\shader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{A35613C6-2570-3BFD-BE40-8C3702FDB103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{8E44C0E0-9C98-3107-BDA2-C9A2F465EE3B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
