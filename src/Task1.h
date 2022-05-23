@@ -39,8 +39,9 @@ public:
         glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
         glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-        OBJLoad("../../resource/spit.obj", vertices, normals, uv);
-        //}
+        OBJLoad("../../resource/suzanne.obj", vertices, normals, uv);
+        // loadOBJ("../../resource/suzanne.obj", vertices, uv, normals);
+        //  }
 
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
@@ -52,8 +53,9 @@ public:
         GLuint mvpID = glGetUniformLocation(programid, "MVP");
         GLuint colorID = glGetUniformLocation(programid, "inputColor");
         GLuint isTextured = glGetUniformLocation(programid, "isTextured");
-        // GLuint blackWhiteFlag = glGetUniformLocation(programid, "whiteblack");
-        // GLuint cell_Shading = glGetUniformLocation(programid, "cel_Shading");
+        GLuint model = glGetUniformLocation(programid, "model");
+        GLuint viewPos = glGetUniformLocation(programid, "viewPos");
+        GLuint blime = glGetUniformLocation(programid, "blin");
 
         Object cube0(vertices, uv, normals);
         vertices.clear();
@@ -79,13 +81,16 @@ public:
             glBindTexture(GL_TEXTURE_2D, out[1]);
 
             glUniform1i(isTextured, GL_TRUE);
+            glUniform1i(blime, GL_FALSE);
+            glm::vec3 pos = getPosition();
+            glUniform3f(viewPos, pos[0], pos[1], pos[2]);
 
-            cube0.drawObject(window, mvpID);
+            cube0.drawObject(window, mvpID, model);
 
             glUniform1i(out1[0], 0);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, out1[1]);
-            floor.drawObject(window, mvpID);
+            floor.drawObject(window, mvpID, model);
 
             glFinish();
             glfwSwapBuffers(window);

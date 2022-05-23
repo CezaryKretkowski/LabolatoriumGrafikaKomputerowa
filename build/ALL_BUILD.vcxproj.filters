@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Lothar\Desktop\lab05\GLFWSample-master-master\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\cezar\OneDrive\Dokumenty\GitHub\LabolatoriumGrafikaKomputerowa\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

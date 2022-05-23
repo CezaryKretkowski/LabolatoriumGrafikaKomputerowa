@@ -21,6 +21,7 @@ private:
     void upDateMatrix(GLFWwindow *window);
 
 public:
+    void drawObject(GLFWwindow *window, GLuint mvpID, GLuint modelMat);
     void drawObject(GLFWwindow *window, GLuint mvpID);
     Object(std::vector<glm::vec3> posytion,
            std::vector<glm::vec2> textCords,

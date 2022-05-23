@@ -23,7 +23,7 @@ bool OBJLoad(std::string path, std::vector<glm::vec3> &vert, std::vector<glm::ve
         {
             vert.push_back(glm::vec3(curMesh.Vertices[j].Position.X, curMesh.Vertices[j].Position.Y, curMesh.Vertices[j].Position.Z));
             normals.push_back(glm::vec3(curMesh.Vertices[j].Normal.X, curMesh.Vertices[j].Normal.Y, curMesh.Vertices[j].Normal.Z));
-            uv.push_back(glm::vec2(curMesh.Vertices[j].TextureCoordinate.X, curMesh.Vertices[j].TextureCoordinate.Y));
+            uv.push_back(glm::vec2(curMesh.Vertices[j].TextureCoordinate.Y, curMesh.Vertices[j].TextureCoordinate.X));
         }
     }
 
