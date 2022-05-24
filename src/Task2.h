@@ -44,12 +44,19 @@ private:
             // "../../resource/skyBoxTexture/stormydays_bk.png",
             // "../../resource/skyBoxTexture/stormydays_ft.png",
 
-            "../../resource/clouds/2.bmp",
-            "../../resource/clouds/6.bmp",
-            "../../resource/clouds/5.bmp",
-            "../../resource/clouds/1.bmp",
-            "../../resource/clouds/3.bmp",
-            "../../resource/clouds/4.bmp",
+            // "../../resource/clouds/2.bmp",
+            // "../../resource/clouds/6.bmp",
+            // "../../resource/clouds/5.bmp",
+            // "../../resource/clouds/1.bmp",
+            // "../../resource/clouds/3.bmp",
+            // "../../resource/clouds/4.bmp",
+
+            "../../resource/sandSkybox/5.jpg",
+            "../../resource/sandSkybox/6.jpg",
+            "../../resource/sandSkybox/1.jpg",
+            "../../resource/sandSkybox/3.jpg",
+            "../../resource/sandSkybox/4.jpg",
+            "../../resource/sandSkybox/2.jpg",
 
         };
 
