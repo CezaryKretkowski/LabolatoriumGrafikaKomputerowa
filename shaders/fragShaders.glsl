@@ -1,14 +1,12 @@
 #version 330
 in vec4 outColor;
-in vec2 textCords;
+in vec3 textCords;
 
 out vec4 color;
-uniform sampler2D myTextureSampler;
+uniform samplerCube myTextureSampler;
 uniform bool isTextured;
 
 void main(){
     vec4 materialColor=texture(myTextureSampler,textCords);
-    color = outColor;
-    if(isTextured)
-         color=materialColor;
+    color=materialColor;
 }

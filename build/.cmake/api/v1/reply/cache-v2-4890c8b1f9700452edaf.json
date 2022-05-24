@@ -27,7 +27,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/build"
+			"value" : "c:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master"
+			"value" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1059,7 +1059,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/build"
+			"value" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/build"
 		},
 		{
 			"name" : "untitled3_IS_TOP_LEVEL",
@@ -1083,7 +1083,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master"
+			"value" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master"
 		}
 	],
 	"kind" : "cache",

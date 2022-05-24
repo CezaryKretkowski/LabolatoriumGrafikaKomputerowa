@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/dependeces/glm
+# Install script for directory: C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/dependeces/glm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -25,18 +25,52 @@ private:
     std::vector<glm::vec3> normals;
     std::vector<glm::vec2> uv;
     GLuint Textur0;
-    GLuint Textur1;
-
-    void bindTexture(GLint out[2])
+    unsigned int texture;
+    bool initSkybox()
     {
-        glUniform1i(Textur0, 0);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, out[0]);
-        glUniform1i(Textur1, 1);
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, out[1]);
-    }
+        GLuint TexCubicID[] = {
+            GL_TEXTURE_CUBE_MAP_POSITIVE_X, // Prawo
+            GL_TEXTURE_CUBE_MAP_NEGATIVE_X, // Lewo
+            GL_TEXTURE_CUBE_MAP_POSITIVE_Y, // Góra
+            GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, // Dół
+            GL_TEXTURE_CUBE_MAP_POSITIVE_Z, // Przód
+            GL_TEXTURE_CUBE_MAP_NEGATIVE_Z  // Tył
+        };
+        const char *TexFileNames[] = {
+            "../../resource/skyBoxTexture/stormydays_rt.png",
+            "../../resource/skyBoxTexture/stormydays_lf.png",
+            "../../resource/skyBoxTexture/stormydays_up.png",
+            "../../resource/skyBoxTexture/stormydays_dn.png",
+            "../../resource/skyBoxTexture/stormydays_bk.png",
+            "../../resource/skyBoxTexture/stormydays_ft.png",
 
+        };
+
+        glGenTextures(1, &texture);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
+
+        for (int i = 0; i < 6; i++)
+        {
+            int width, height, nchan;
+            unsigned char *dt = stbi_load(TexFileNames[i], &width, &height, &nchan, 0);
+            if (!dt)
+            {
+                puts("error!!!");
+                return false;
+            }
+            puts("Succes");
+            glTexImage2D(TexCubicID[i], 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, dt);
+            stbi_image_free(dt);
+        }
+
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+        return true;
+    }
     /* data */
 public:
     void run()
@@ -50,15 +84,10 @@ public:
         glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
         glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-        std::vector<glm::vec3> vertices1;
-        std::vector<glm::vec3> normals1;
-        std::vector<glm::vec2> uv1;
-
         loadOBJ("../../resource/cube.obj", vertices, uv, normals);
 
-        loadOBJ("../../resource/suzanne.obj", vertices1, uv1, normals1);
         //}
-
+        initSkybox();
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
         glEnable(GL_BLEND);
@@ -66,7 +95,7 @@ public:
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
         // wczytywanie shaderów{
-        GLuint programid = LoadShaders("../../shaders/verShader.glsl", "../../shaders/fragShadersDouble.glsl");
+        GLuint programid = LoadShaders("../../shaders/skybox.glsl", "../../shaders/fragShaders.glsl");
 
         GLuint colorId = glGetUniformLocation(programid, "inputColor");
 
@@ -74,19 +103,16 @@ public:
 
         GLuint isTextured = glGetUniformLocation(programid, "isTextured");
 
-        Textur0 = glGetUniformLocation(programid, "myTextureSampler0");
-        Textur1 = glGetUniformLocation(programid, "myTextureSampler1");
+        Object cube1(vertices, uv, normals);
 
-        Object cube1(vertices1, uv1, normals1);
+        Textur0 = glGetUniformLocation(programid, "myTextureSampler");
 
         cube1.translate(glm::vec3(0.0f, 0.0f, 0.0f));
+        cube1.scale(glm::vec3(5.0f, 5.0f, 5.0f));
 
         GLint out1[2];
 
-        out1[0] = loadTexture("../../resource/uvmap.png", 1);
-        out1[1] = loadTexture("../../resource/texture1.png", 1);
-
-        // loadTexture(programid, "../../resource/uvmap.png", "myTextureSampler0", out2, 3);
+        loadTexture(programid, "../../resource/uvmap.png", "myTextureSampler", out1);
 
         do
         {
@@ -94,8 +120,11 @@ public:
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glUseProgram(programid);
             glUniform1i(isTextured, GL_TRUE);
-            bindTexture(out1);
-            cube1.drawObject(window, mvpID);
+            glUniform1i(Textur0, 0);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
+
+            cube1.drawSkyBox(window, mvpID);
             glfwSwapBuffers(window);
             glfwPollEvents();
 

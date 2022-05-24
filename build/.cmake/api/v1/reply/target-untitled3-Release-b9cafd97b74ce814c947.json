@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Debug/untitled3.exe"
+			"path" : "Release/untitled3.exe"
 		},
 		{
-			"path" : "Debug/untitled3.pdb"
+			"path" : "Release/untitled3.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -59,22 +59,22 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob2 /DNDEBUG -MD"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/dependeces/glfw/include"
+					"path" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/dependeces/glfw/include"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/dependeces/glew/include"
+					"path" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/dependeces/glew/include"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/dependeces/glm/.."
+					"path" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/dependeces/glm/.."
 				}
 			],
 			"language" : "CXX",
@@ -101,22 +101,22 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd"
+					"fragment" : "/DWIN32 /D_WINDOWS /O2 /Ob2 /DNDEBUG -MD"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/dependeces/glfw/include"
+					"path" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/dependeces/glfw/include"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/dependeces/glew/include"
+					"path" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/dependeces/glew/include"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Lothar/Desktop/lab05/GLFWSample-master-master/dependeces/glm/.."
+					"path" : "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/dependeces/glm/.."
 				}
 			],
 			"language" : "C",
@@ -138,21 +138,21 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd",
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob2 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
+				"fragment" : "/machine:x64 /INCREMENTAL:NO /subsystem:console",
 				"role" : "flags"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-LIBPATH:C:\\Users\\Lothar\\Desktop\\lab05\\GLFWSample-master-master\\dependeces\\glfw\\lib-vc2022",
+				"fragment" : "-LIBPATH:C:\\Users\\Lothar\\Desktop\\lab06\\GLFWSample-master-master\\dependeces\\glfw\\lib-vc2022",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-LIBPATH:C:\\Users\\Lothar\\Desktop\\lab05\\GLFWSample-master-master\\dependeces\\glew\\lib\\Release\\x64",
+				"fragment" : "-LIBPATH:C:\\Users\\Lothar\\Desktop\\lab06\\GLFWSample-master-master\\dependeces\\glew\\lib\\Release\\x64",
 				"role" : "libraryPath"
 			},
 			{

@@ -18,7 +18,7 @@ using namespace glm;
 
 int main()
 {
-    Task1 *task = new Task1();
+    Task2 *task = new Task2();
     task->run();
 
     return 0;
