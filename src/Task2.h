@@ -37,12 +37,19 @@ private:
             GL_TEXTURE_CUBE_MAP_NEGATIVE_Z  // Tył
         };
         const char *TexFileNames[] = {
-            "../../resource/skyBoxTexture/stormydays_rt.png",
-            "../../resource/skyBoxTexture/stormydays_lf.png",
-            "../../resource/skyBoxTexture/stormydays_up.png",
-            "../../resource/skyBoxTexture/stormydays_dn.png",
-            "../../resource/skyBoxTexture/stormydays_bk.png",
-            "../../resource/skyBoxTexture/stormydays_ft.png",
+            // "../../resource/skyBoxTexture/stormydays_rt.png",
+            // "../../resource/skyBoxTexture/stormydays_lf.png",
+            // "../../resource/skyBoxTexture/stormydays_up.png",
+            // "../../resource/skyBoxTexture/stormydays_dn.png",
+            // "../../resource/skyBoxTexture/stormydays_bk.png",
+            // "../../resource/skyBoxTexture/stormydays_ft.png",
+
+            "../../resource/clouds/2.bmp",
+            "../../resource/clouds/6.bmp",
+            "../../resource/clouds/5.bmp",
+            "../../resource/clouds/1.bmp",
+            "../../resource/clouds/3.bmp",
+            "../../resource/clouds/4.bmp",
 
         };
 
@@ -96,19 +103,28 @@ public:
         glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
         // wczytywanie shaderów{
         GLuint programid = LoadShaders("../../shaders/skybox.glsl", "../../shaders/fragShaders.glsl");
+        GLuint boxID = LoadShaders("../../shaders/boxReflectionVert.glsl", "../../shaders/boxReflectionFrag.glsl");
 
         GLuint colorId = glGetUniformLocation(programid, "inputColor");
 
         GLuint mvpID = glGetUniformLocation(programid, "MVP");
+        GLuint M = glGetUniformLocation(boxID, "M");
+        GLuint V = glGetUniformLocation(boxID, "V");
+        GLuint P = glGetUniformLocation(boxID, "P");
+        GLuint camerPos = glGetUniformLocation(boxID, "viewPos");
 
         GLuint isTextured = glGetUniformLocation(programid, "isTextured");
 
         Object cube1(vertices, uv, normals);
+        vertices.clear();
+        uv.clear();
+        normals.clear();
+        OBJLoad("../../resource/spit.obj", vertices, normals, uv);
+        Object cube2(vertices, uv, normals);
 
         Textur0 = glGetUniformLocation(programid, "myTextureSampler");
 
-        cube1.translate(glm::vec3(0.0f, 0.0f, 0.0f));
-        cube1.scale(glm::vec3(5.0f, 5.0f, 5.0f));
+        cube2.translate(glm::vec3(0.0f, 0.0f, 3.0f));
 
         GLint out1[2];
 
@@ -116,7 +132,7 @@ public:
 
         do
         {
-
+            glm::vec3 camera = getPosition();
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glUseProgram(programid);
             glUniform1i(isTextured, GL_TRUE);
@@ -125,6 +141,9 @@ public:
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
 
             cube1.drawSkyBox(window, mvpID);
+            glUseProgram(boxID);
+            glUniform3f(camerPos, camera[0], camera[1], camera[2]);
+            cube2.drawObject(window, M, V, P);
             glfwSwapBuffers(window);
             glfwPollEvents();
 

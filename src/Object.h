@@ -22,6 +22,7 @@ private:
 
 public:
     void drawObject(GLFWwindow *window, GLuint mvpID);
+    void drawObject(GLFWwindow *window, GLuint M, GLuint V, GLuint P);
     void drawSkyBox(GLFWwindow *window, GLuint mvpID);
     Object(std::vector<glm::vec3> posytion,
            std::vector<glm::vec2> textCords,

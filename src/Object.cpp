@@ -60,9 +60,23 @@ void Object::drawObject(GLFWwindow *window, GLuint mvpID)
 void Object::drawSkyBox(GLFWwindow *window, GLuint mvpID)
 {
     upDateMatrix(window);
+
+    glm::mat4 modelMat = glm::translate(glm::mat4(1), getPosition());
+    modelMat = glm::scale(modelMat, glm::vec3(10, 10, 10));
     glBindVertexArray(vao);
-    glm::mat4 mvp = project * view;
+    glm::mat4 mvp = project * view * modelMat;
+    glDepthMask(GL_FALSE);
     glUniformMatrix4fv(mvpID, 1, GL_FALSE, &mvp[0][0]);
+    glDrawArrays(GL_TRIANGLES, 0, posytion.size());
+    glDepthMask(GL_TRUE);
+}
+void Object::drawObject(GLFWwindow *window, GLuint M, GLuint V, GLuint P)
+{
+    upDateMatrix(window);
+    glBindVertexArray(vao);
+    glUniformMatrix4fv(M, 1, GL_FALSE, &model[0][0]);
+    glUniformMatrix4fv(V, 1, GL_FALSE, &view[0][0]);
+    glUniformMatrix4fv(P, 1, GL_FALSE, &project[0][0]);
     glDrawArrays(GL_TRIANGLES, 0, posytion.size());
 }
 void Object::rotate(glm::vec3 vector, float angle)

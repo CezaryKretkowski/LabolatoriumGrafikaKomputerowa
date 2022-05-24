@@ -11,6 +11,6 @@ uniform vec4 inputColor;
 
 void main(){
 	outColor=inputColor;
-	textCords=texturCords;
+	textCords=textCords;
 	gl_Position=MVP*vec4(pos,1.0);	
 }

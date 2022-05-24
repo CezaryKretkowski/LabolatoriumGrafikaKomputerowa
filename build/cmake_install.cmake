@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master
+# Install script for directory: C:/Users/cezar/OneDrive/Dokumenty/GitHub/LabolatoriumGrafikaKomputerowa
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/build/dependeces/glm/cmake_install.cmake")
+  include("C:/Users/cezar/OneDrive/Dokumenty/GitHub/LabolatoriumGrafikaKomputerowa/build/dependeces/glm/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Lothar/Desktop/lab06/GLFWSample-master-master/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/cezar/OneDrive/Dokumenty/GitHub/LabolatoriumGrafikaKomputerowa/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

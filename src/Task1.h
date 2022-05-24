@@ -85,7 +85,7 @@ public:
             glUniform1i(out1[0], 0);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, out1[1]);
-            floor.drawObject(window, mvpID);
+            floor.drawSkyBox(window, mvpID);
 
             glFinish();
             glfwSwapBuffers(window);
