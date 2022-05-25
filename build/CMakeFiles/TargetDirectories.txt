@@ -1,3 +1,3 @@
-C:/Users/cezar/OneDrive/Dokumenty/GitHub/LabolatoriumGrafikaKomputerowa/build/CMakeFiles/untitled3.dir
-C:/Users/cezar/OneDrive/Dokumenty/GitHub/LabolatoriumGrafikaKomputerowa/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/cezar/OneDrive/Dokumenty/GitHub/LabolatoriumGrafikaKomputerowa/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Lothar/Documents/GitHub/LabolatoriumGrafikaKomputerowa/build/CMakeFiles/untitled3.dir
+C:/Users/Lothar/Documents/GitHub/LabolatoriumGrafikaKomputerowa/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Lothar/Documents/GitHub/LabolatoriumGrafikaKomputerowa/build/CMakeFiles/ZERO_CHECK.dir

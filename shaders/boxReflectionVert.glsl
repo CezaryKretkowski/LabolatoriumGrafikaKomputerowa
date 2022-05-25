@@ -15,7 +15,7 @@ uniform mat4 P;
 
 void main(){
 	aPos=vec3(P*V*M*vec4(pos,1.0));
-    norm=mat3(transpose(inverse(M)))*norm;
+    norm=(V*M*vec4(normals, 0)).xyz;
     inversModel=mat3(inverse(M));
 	gl_Position=P*V*M*vec4(pos,1.0);	
 }

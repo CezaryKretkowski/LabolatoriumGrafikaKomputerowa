@@ -8,8 +8,8 @@ uniform samplerCube myTextureSampler;
 uniform vec3 viewPos;
 
 void main(){
-    float ratio = 1.00 / 1.52;
+
     vec3 I =normalize(aPos-viewPos);
     vec3 R =inversModel* reflect(I,normalize(norm))* vec3(1, 1, -1);
-    color=mix(vec4(texture(myTextureSampler,R).rgb,1.0),vec4(0.0,0.8,0.2,1),0.6);
+    color=mix(vec4(texture(myTextureSampler,R).rgb,1.0),vec4(0.0,0.8,0.0,1.0),0.0);
 }

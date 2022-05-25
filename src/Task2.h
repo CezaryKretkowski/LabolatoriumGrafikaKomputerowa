@@ -37,12 +37,12 @@ private:
             GL_TEXTURE_CUBE_MAP_NEGATIVE_Z  // Tył
         };
         const char *TexFileNames[] = {
-            // "../../resource/skyBoxTexture/stormydays_rt.png",
-            // "../../resource/skyBoxTexture/stormydays_lf.png",
-            // "../../resource/skyBoxTexture/stormydays_up.png",
-            // "../../resource/skyBoxTexture/stormydays_dn.png",
-            // "../../resource/skyBoxTexture/stormydays_bk.png",
-            // "../../resource/skyBoxTexture/stormydays_ft.png",
+            "../../resource/skyBoxTexture/stormydays_rt.png",
+            "../../resource/skyBoxTexture/stormydays_lf.png",
+            "../../resource/skyBoxTexture/stormydays_up.png",
+            "../../resource/skyBoxTexture/stormydays_dn.png",
+            "../../resource/skyBoxTexture/stormydays_bk.png",
+            "../../resource/skyBoxTexture/stormydays_ft.png",
 
             // "../../resource/clouds/2.bmp",
             // "../../resource/clouds/6.bmp",
@@ -51,12 +51,12 @@ private:
             // "../../resource/clouds/3.bmp",
             // "../../resource/clouds/4.bmp",
 
-            "../../resource/sandSkybox/5.jpg",
-            "../../resource/sandSkybox/6.jpg",
-            "../../resource/sandSkybox/1.jpg",
-            "../../resource/sandSkybox/3.jpg",
-            "../../resource/sandSkybox/4.jpg",
-            "../../resource/sandSkybox/2.jpg",
+            // "../../resource/sandSkybox/5.jpg",
+            // "../../resource/sandSkybox/6.jpg",
+            // "../../resource/sandSkybox/1.jpg",
+            // "../../resource/sandSkybox/3.jpg",
+            // "../../resource/sandSkybox/4.jpg",
+            // "../../resource/sandSkybox/2.jpg",
 
         };
 
@@ -120,7 +120,7 @@ public:
         GLuint P = glGetUniformLocation(boxID, "P");
         GLuint camerPos = glGetUniformLocation(boxID, "viewPos");
 
-        GLuint isTextured = glGetUniformLocation(programid, "isTextured");
+        GLuint invers = glGetUniformLocation(boxID, "inversModel");
 
         Object cube1(vertices, uv, normals);
         vertices.clear();
@@ -130,6 +130,7 @@ public:
         Object cube2(vertices, uv, normals);
 
         Textur0 = glGetUniformLocation(programid, "myTextureSampler");
+        GLuint Textur1 = glGetUniformLocation(boxID, "myTextureSampler");
 
         cube2.translate(glm::vec3(0.0f, 0.0f, 3.0f));
 
@@ -142,13 +143,17 @@ public:
             glm::vec3 camera = getPosition();
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glUseProgram(programid);
-            glUniform1i(isTextured, GL_TRUE);
+
             glUniform1i(Textur0, 0);
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
 
             cube1.drawSkyBox(window, mvpID);
             glUseProgram(boxID);
+
+            glUniform1i(Textur1, 0);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, texture);
             glUniform3f(camerPos, camera[0], camera[1], camera[2]);
             cube2.drawObject(window, M, V, P);
             glfwSwapBuffers(window);

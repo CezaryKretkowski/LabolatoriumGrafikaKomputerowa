@@ -21,6 +21,7 @@ private:
     void upDateMatrix(GLFWwindow *window);
 
 public:
+    glm::mat4 getModel() { return model; }
     void drawObject(GLFWwindow *window, GLuint mvpID);
     void drawObject(GLFWwindow *window, GLuint M, GLuint V, GLuint P);
     void drawSkyBox(GLFWwindow *window, GLuint mvpID);
